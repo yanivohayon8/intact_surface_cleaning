@@ -1,0 +1,12 @@
+[
+    {
+        "n":1,
+        "mask":"two_rectangles",
+        "params":{
+            "height":800,
+            "width": 400,
+            "shift_col":200,
+            "shift_row":0
+        }
+    }
+]

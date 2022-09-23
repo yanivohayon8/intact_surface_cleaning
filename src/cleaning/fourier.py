@@ -18,25 +18,6 @@ def plot_transformation(img,amplitude,mask,amplitude_filtered,img_filtered):
                               chain.from_iterable(axes), 
                               ["img", "Amplitude Spectrum", "Filter", "Filtered Amplitude Spectrum", "img filtered"]):
         ax.imshow(img, cmap='gray')
-        
-def build_circle_mask(img,crow,ccol,radius):
-    circle_mask = np.zeros_like(img)
-
-    for i in range(crow-radius, crow+radius):
-            for j in range(ccol-radius, ccol + radius):
-                if (crow - i) ** 2 + (ccol - j) ** 2 <= radius**2:
-                    circle_mask[i,j]=1
-    return circle_mask
-
-def build_rectangle_low_pass(img,crow,ccol,height,width):
-    zeros = np.zeros_like(img)
-    zeros[crow-height//2:crow+height//2,ccol-width//2:ccol+width//2] = 1
-    return zeros
-
-def build_rectangle_high_pass(img,crow,ccol,height,width):
-    ones = np.ones_like(img)
-    ones[crow-height//2:crow+height//2,ccol-width//2:ccol+width//2] = 0
-    return ones
 
 
 def transform_color_img(channels,masks,is_debug=False):
